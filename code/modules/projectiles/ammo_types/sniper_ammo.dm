@@ -100,6 +100,18 @@
 /datum/ammo/bullet/sniper/pfc/flak/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 4, slowdown = 1.5, stagger = 2 SECONDS, max_range = 17)
 
+/datum/ammo/bullet/sniper/rifle55x45
+	name = "excessively high speed sniper rifle bullet"
+	hud_state = "sniper"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_BETTER_COVER_RNG|AMMO_SNIPER
+	accurate_range_min = 4
+	shell_speed = 4.5
+	accurate_range = 35
+	max_range = 50
+	damage = 50
+	penetration = 45
+	sundering = 0.15
+	damage_falloff = 0.2
 
 /datum/ammo/bullet/sniper/auto
 	name = "low velocity high caliber rifle bullet"

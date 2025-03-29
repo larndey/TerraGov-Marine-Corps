@@ -413,6 +413,21 @@
 	bonus_overlay = "tl127_flak"
 
 //-------------------------------------------------------
+//for the SR-226
+/obj/item/ammo_magazine/rifle/rifle55x45
+	name = "SR-226 bolt action magazine"
+	desc = "A box magazine filled with rifle 5.5x45mm rounds for the SR-226. The bullets look quite strange!"
+	caliber = CALIBER_86X70
+	icon_state = "tl127"
+	icon = 'icons/obj/items/ammo/sniper.dmi'
+	icon_state_mini = "mag_rifle_big"
+	default_ammo = /datum/ammo/bullet/sniper/rifle55x45
+	current_rounds = 6
+	max_rounds = 6
+	bonus_overlay = "tl127_mag"
+
+
+//-------------------------------------------------------
 //Marine magazine automatic sniper, or the SR-81.
 /obj/item/ammo_magazine/rifle/autosniper
 	name = "\improper SR-81 automatic sniper rifle magazine"

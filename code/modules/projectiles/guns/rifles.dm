@@ -1551,6 +1551,79 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/tl127stock)
 
 //-------------------------------------------------------
+//SR-something bolt action sniper rifle
+
+/obj/item/weapon/gun/rifle/something
+	name = "\improper SR-226 bolt action rifle"  //"Bauer"?
+	desc = "The quick SR-226 firing the tiny bullet. Appreciated for it's hasty bullet speed and armour penitration. Said to be only usable by the best of marksmen. Uses rifle 5.5x45mm magazines."
+	icon = 'icons/obj/items/guns/marksman64.dmi'
+	icon_state = "tl127"
+	worn_icon_state = "tl127"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/guns/marksman_left_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/marksman_right_64.dmi',
+	)
+	gun_crosshair = 'icons/UI_Icons/gun_crosshairs/sniper.dmi'
+
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sr127.ogg'
+	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sr127_low.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/tl-127_bolt.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
+	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
+	caliber = CALIBER_55X45
+	max_shells = 6
+	default_ammo_type = /obj/item/ammo_magazine/rifle/rifle55x45
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/rifle55x45,
+		///obj/item/ammo_magazine/rifle/chamberedrifle/flak,
+	)
+	attachable_allowed = list(
+		///obj/item/attachable/scope/unremovable/tl127,
+		/obj/item/attachable/stock/tl127stock,
+		///obj/item/attachable/extended_barrel, //hehe no
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet/converted,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonet/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/foldable/bipod,
+	)
+
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	reciever_flags = AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION|AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_UNIQUE_ACTION_LOCKS|AMMO_RECIEVER_AUTO_EJECT
+
+	cock_animation = "tl127_cock"
+	cocked_message = "You rack the bolt with beauty."
+
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
+	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 19,"rail_x" = 10, "rail_y" = 22, "under_x" = 33, "under_y" = 16, "stock_x" = 8, "stock_y" = 12)
+	actions_types = list(/datum/action/item_action/aim_mode)
+	aim_fire_delay = 0.8 SECONDS
+
+	starting_attachment_types = list(
+		///obj/item/attachable/scope/unremovable/tl127,
+		/obj/item/attachable/stock/tl127stock,
+	)
+
+	burst_amount = 1
+	fire_delay = 1 SECONDS
+	accuracy_mult = 1.15
+	accuracy_mult_unwielded = 0.6
+	scatter = -5
+	scatter_unwielded = 20
+	recoil = 0
+	recoil_unwielded = 4
+	aim_slowdown = 0.8
+	wield_delay = 1.3 SECONDS
+	cock_delay = 0.55 SECONDS
+	movement_acc_penalty_mult = 4.5
+
+
+//-------------------------------------------------------
 //SR-81 Auto-Sniper
 
 /obj/item/weapon/gun/rifle/standard_autosniper

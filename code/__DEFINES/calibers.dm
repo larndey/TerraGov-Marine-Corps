@@ -53,6 +53,7 @@
 
 // --- Snipers ---
 #define CALIBER_86X70 "8.6x70mm"
+#define CALIBER_55X45 "5.5x45mm"
 #define CALIBER_10X99 "10x99mm"
 #define CALIBER_14X5 "14x5mm"
 #define CALIBER_762X54 "7.62x54mm Rimmed" //SVD and mosin
