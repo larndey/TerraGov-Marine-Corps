@@ -1,0 +1,13 @@
+{
+    "map_name": "Xenomorph Hive",
+    "map_path": "map_files/Xenomorph_Hive,
+    "map_file": "Xenomorph_Hive.dmm",
+	"quickbuilds": 2700,
+	"armor": "urban",
+	"announce_text": "We're not sure what this really is, but we do know the threat it poses. You are the best of the best. Destroy it. It's time to gear up TGMC. Good luck out there.",
+	"traits":[{
+		"weather_rain": true,
+		"No Parallax": true,
+		"Baseturf": "/turf/open/floor/plating"
+	}]
+}

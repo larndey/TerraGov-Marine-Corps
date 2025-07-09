@@ -114,3 +114,6 @@ map metnal
 	minplayers 45
   endmap
   
+map xenomorphhive
+endmap
+
