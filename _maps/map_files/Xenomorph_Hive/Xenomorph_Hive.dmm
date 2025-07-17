@@ -32,6 +32,10 @@
 "hv" = (
 /turf/open/engineership/engineer_floor2,
 /area/space)
+"hB" = (
+/obj,
+/turf/open/engineership/engineer_floor2,
+/area/space)
 "kn" = (
 /obj/effect/urban/decal/engineership_corners{
 	dir = 1
@@ -9722,7 +9726,7 @@ hv
 hv
 hv
 hv
-hv
+hB
 hv
 hv
 hv
@@ -10090,7 +10094,7 @@ hv
 hv
 hv
 hv
-IP
+hv
 IP
 VR
 hv
@@ -10272,7 +10276,7 @@ hv
 hv
 hv
 hv
-IP
+hv
 VR
 VR
 hv
@@ -10454,7 +10458,7 @@ CU
 CU
 sX
 sX
-IP
+hv
 VR
 hv
 hv
@@ -10636,7 +10640,7 @@ sW
 sW
 VR
 VR
-IP
+hv
 VR
 np
 hv
@@ -10818,7 +10822,7 @@ mI
 mI
 zF
 zF
-IP
+hv
 VR
 hv
 hv
@@ -11000,7 +11004,7 @@ bg
 bg
 hr
 hr
-IP
+hv
 VR
 hv
 UP
@@ -11182,7 +11186,7 @@ nw
 nw
 Or
 Or
-IP
+hv
 nm
 hv
 hv
@@ -11364,7 +11368,7 @@ hv
 hv
 hv
 hv
-IP
+hv
 nm
 hv
 hv
@@ -11546,7 +11550,7 @@ hv
 hv
 hv
 NZ
-IP
+hv
 CU
 UP
 hv
@@ -11728,7 +11732,7 @@ hv
 hv
 hv
 hv
-IP
+hv
 CU
 hv
 hv
