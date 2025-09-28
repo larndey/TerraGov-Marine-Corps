@@ -45,10 +45,10 @@
 	to_chat(user, "You wrap some cable around the bayonet. It can now be attached to a gun.")
 	if(loc == user)
 		user.temporarilyRemoveItemFromInventory(src)
-	var/obj/item/attachable/bayonet/F = new(src.loc)
+	var/obj/item/attachable/bayonet/converted/F = new(src.loc)
 	user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
 	if(F.loc != user) //It ended up on the floor, put it whereever the old flashlight is.
-		F.loc = get_turf(src)
+		F.forceMove(get_turf(src))
 	qdel(src) //Delete da old knife
 
 /obj/item/weapon/combat_knife/Initialize(mapload)
@@ -71,6 +71,13 @@
 	throw_speed = 2
 	throw_range = 8
 
+/obj/item/weapon/combat_knife/pmc
+	name = "\improper M2X HF-S self defense blade"
+	icon_state = "pmc_knife"
+	worn_icon_state = "pmc_knife"
+	desc = "A experemental short blade, utilizing high-frequency techology. A small but dangerous weapon, which can cut through even the heaviest of armors. Many mercenaries keep it close, for desperate situations."
+	penetration = 25
+
 /obj/item/weapon/karambit
 	name = "karambit"
 	icon = 'icons/obj/items/weapons/knives.dmi'
@@ -87,19 +94,6 @@
 	attack_speed = 8
 	hitsound = 'sound/weapons/slash.ogg'
 	attack_verb = list("slashes", "stabs", "slices", "tears", "rips", "dices", "cuts", "hooks")
-
-//Try to do a fancy trick with your cool knife
-/obj/item/weapon/karambit/attack_self(mob/user)
-	. = ..()
-	if(!user.dextrous)
-		to_chat(user, span_warning("You don't have the dexterity to do this."))
-		return
-	if(user.incapacitated() || !isturf(user.loc))
-		to_chat(user, span_warning("You can't do this right now."))
-		return
-	if(user.do_actions)
-		return
-	do_trick(user)
 
 /obj/item/weapon/karambit/fade
 	icon_state = "karambit_fade"
@@ -190,7 +184,7 @@
 	if(!current_target)
 		return
 	SEND_SIGNAL(src, COMSIG_GUN_FIRE)
-	living_user?.client?.mouse_pointer_icon = 'icons/effects/supplypod_target.dmi'
+	living_user?.client?.mouse_pointer_icon = 'icons/UI_Icons/gun_crosshairs/rifle.dmi'
 
 ///Throws a knife from the stack, or, if the stack is one, throws the stack.
 /obj/item/stack/throwing_knife/proc/throw_knife()

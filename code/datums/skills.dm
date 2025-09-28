@@ -456,7 +456,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	engineer = SKILL_ENGINEER_METAL
 	construction = SKILL_CONSTRUCTION_METAL
 	powerloader = SKILL_POWERLOADER_PRO
-	mech = SKILL_MECH_DEFAULT
+	mech = SKILL_MECH_TRAINED
 
 /datum/skills/assault_crewman
 	name = ASSAULT_CREWMAN
@@ -508,6 +508,12 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	construction = SKILL_CONSTRUCTION_PLASTEEL
 	engineer = SKILL_ENGINEER_ENGI
 
+/datum/skills/freelancer_veteran
+	name = "freelancer veteran"
+	construction = SKILL_CONSTRUCTION_METAL
+	engineer = SKILL_ENGINEER_METAL
+	medical = SKILL_MEDICAL_NOVICE
+
 /datum/skills/special_forces_standard
 	name = "Special Response Force Standard"
 	construction = SKILL_CONSTRUCTION_METAL
@@ -544,6 +550,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 /datum/skills/sl/pmc
 	name = "PMC Leader"
 	combat = SKILL_COMBAT_TRAINED
+	smartgun = SKILL_SMART_TRAINED
 	pistols = SKILL_PISTOLS_TRAINED
 	smgs = SKILL_SMGS_TRAINED
 	rifles = SKILL_RIFLES_TRAINED
@@ -575,6 +582,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 /datum/skills/specialist/pmc
 	name = "PMC Specialist"
 	engineer = SKILL_ENGINEER_METAL
+	pistols = SKILL_PISTOLS_TRAINED
 
 /datum/skills/specialist/upp
 	name = "UPP Specialist"

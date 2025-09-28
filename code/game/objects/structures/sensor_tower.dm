@@ -7,6 +7,7 @@
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
 	resistance_flags = RESIST_ALL
+	faction = FACTION_SOM
 	///The timer for when the sensor tower activates
 	var/current_timer
 	///Time it takes for the sensor tower to fully activate
@@ -25,8 +26,6 @@
 	var/static/already_activated = FALSE
 	///How long is left in the game end timer. Recorded as a var to pause the timer while tower is activating
 	var/remaining_game_time
-	///The faction that owns this tower, and considered the defender
-	var/faction = FACTION_SOM
 
 /obj/structure/sensor_tower/Initialize(mapload)
 	. = ..()
@@ -172,6 +171,6 @@
 /obj/structure/sensor_tower/proc/update_control_minimap_icon()
 	SSminimaps.remove_marker(src)
 	if(activated)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid]_on_full", VERY_HIGH_FLOAT_LAYER))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid]_on_full", MINIMAP_LABELS_LAYER))
 	else
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid][current_timer ? "_on" : "_off"]", VERY_HIGH_FLOAT_LAYER))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "relay_[towerid][current_timer ? "_on" : "_off"]", MINIMAP_LABELS_LAYER))

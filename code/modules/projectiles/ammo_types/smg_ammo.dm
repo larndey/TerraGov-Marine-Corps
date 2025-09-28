@@ -50,7 +50,7 @@
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 3 SECONDS
 
-/datum/ammo/bullet/smg/squash/on_hit_mob(mob/target_mob, obj/projectile/proj)
+/datum/ammo/bullet/smg/squash/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(!isliving(target_mob))
 		return
 
@@ -73,7 +73,7 @@
 	penetration = 15
 	sundering = 1
 
-/datum/ammo/bullet/smg/rad/on_hit_mob(mob/target_mob, obj/projectile/proj)
+/datum/ammo/bullet/smg/rad/on_hit_mob(mob/target_mob, atom/movable/projectile/proj)
 	if(!isliving(target_mob))
 		return
 	var/mob/living/living_victim = target_mob
@@ -86,3 +86,10 @@
 	damage = 27.5
 	penetration = 10
 	sundering = 1
+
+/datum/ammo/bullet/smg/val
+	name = "heavy submachinegun bullet"
+	damage = 30
+	penetration = 27.5
+	sundering = 2
+	damage_falloff = 1.5

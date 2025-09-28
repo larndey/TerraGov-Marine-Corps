@@ -84,6 +84,10 @@
 	upgrade = XENO_UPGRADE_PRIMO
 	upgrade_stored = TIER_ONE_THRESHOLD
 
+/mob/living/carbon/xenomorph/runner/melter/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+	upgrade_stored = TIER_ONE_THRESHOLD
+
 //-----RUNNER END-----//
 //================//
 //-----BULL START-----//
@@ -218,6 +222,13 @@
 	upgrade = XENO_UPGRADE_PRIMO
 	upgrade_stored = TIER_TWO_THRESHOLD
 
+/mob/living/carbon/xenomorph/spitter/globadier
+	upgrade = XENO_UPGRADE_NORMAL
+
+/mob/living/carbon/xenomorph/spitter/globadier/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+	upgrade_stored = TIER_TWO_THRESHOLD
+
 //-----SPITTER END-----//
 //================//
 //SENTINEL ERT START
@@ -283,7 +294,20 @@
 	upgrade = XENO_UPGRADE_PRIMO
 	upgrade_stored = TIER_THREE_THRESHOLD
 
+/mob/living/carbon/xenomorph/king/conqueror/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+	upgrade_stored = TIER_THREE_THRESHOLD
+
 //----KING END----//
+//============//
+//---DRAGON START---//
+
+/mob/living/carbon/xenomorph/dragon/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+	upgrade_stored = TIER_THREE_THRESHOLD
+
+//----DRAGON END----//
+
 //============//
 //---CRUSHER START---//
 

@@ -1,4 +1,4 @@
-#define MAX_COMMAND_MESSAGE_LEN 120
+#define MAX_COMMAND_MESSAGE_LEN 200
 
 /atom/movable/screen/text/screen_text/command_order
 	maptext_height = 64
@@ -33,13 +33,13 @@
 		return
 	return owner.skills.getRating(skill_name) >= skill_min
 
-/datum/action/innate/message_squad/can_use_action()
+/datum/action/innate/message_squad/can_use_action(silent, override_flags, selecting)
 	. = ..()
 	if(!.)
 		return
 	if(!should_show())
 		return FALSE
-	if(owner.stat != CONSCIOUS || TIMER_COOLDOWN_CHECK(owner, COOLDOWN_HUD_ORDER))
+	if(owner.stat != CONSCIOUS || TIMER_COOLDOWN_RUNNING(owner, COOLDOWN_HUD_ORDER))
 		return FALSE
 	if(owner.skills.getRating(skill_name) < skill_min)
 		return FALSE
@@ -51,6 +51,7 @@
 	var/text = tgui_input_text(human_owner, "Maximum message length [MAX_COMMAND_MESSAGE_LEN]", "Send message to squad",  max_length = MAX_COMMAND_MESSAGE_LEN, multiline = TRUE)
 	if(!text)
 		return
+	text = capitalize(text)
 	var/filter_result = CAN_BYPASS_FILTER(human_owner) ? null : is_ic_filtered(text)
 	if(filter_result)
 		to_chat(human_owner, span_warning("That message contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[text]\"</span>"))
