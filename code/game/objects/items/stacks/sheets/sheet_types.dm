@@ -11,13 +11,35 @@
 * Metal
 */
 GLOBAL_LIST_INIT(metal_recipes, list ( \
+	new/datum/stack_recipe("stool", /obj/structure/bed/stool, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("chair", /obj/structure/bed/chair, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("bed", /obj/structure/bed, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	null, \
+	new/datum/stack_recipe_list("office chairs",list( \
+		new/datum/stack_recipe("dark office chair", /obj/structure/bed/chair/office/dark, 5, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		new/datum/stack_recipe("light office chair", /obj/structure/bed/chair/office/light, 5, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		), 5), \
+	new/datum/stack_recipe_list("comfy chairs", list( \
+		new/datum/stack_recipe("beige comfy chair", /obj/structure/bed/chair/comfy/beige, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		new/datum/stack_recipe("black comfy chair", /obj/structure/bed/chair/comfy/black, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		new/datum/stack_recipe("brown comfy chair", /obj/structure/bed/chair/comfy/brown, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		new/datum/stack_recipe("lime comfy chair", /obj/structure/bed/chair/comfy/lime, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		new/datum/stack_recipe("teal comfy chair", /obj/structure/bed/chair/comfy/teal, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+		), 2), \
+	null, \
+	new/datum/stack_recipe("metal baseball bat", /obj/item/weapon/baseballbat/metal, 10, time = 20, on_floor = TRUE), \
+	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20), \
+	new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 4, 60), \
+	null, \
 	new/datum/stack_recipe("metal barricade", /obj/structure/barricade/solid, 4, time = 8 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 1, 20, time = 1 SECONDS, crafting_flags = NONE, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("razor wire", /obj/item/stack/razorwire, 4, 2, 20, time = 5 SECONDS, crafting_flags = NONE, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("folding metal barricade", /obj/structure/barricade/folding/metal, 6, time = 8 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	null, \
+	new/datum/stack_recipe("computer frame", /obj/structure/computerframe, 5, time = 2.5 SECONDS, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_MASTER), \
 	new/datum/stack_recipe("apc frame", /obj/item/frame/apc, 2, crafting_flags = NONE), \
 	new/datum/stack_recipe("wall girder", /obj/structure/girder, 8, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_ADVANCED), \
+	new/datum/stack_recipe("machine frame", /obj/machinery/constructable_frame/machine_frame, 5, time = 25, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_MASTER), \
 	new/datum/stack_recipe("window frame", /obj/structure/window_frame, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 4, 60, crafting_flags = NONE), \
 	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/plasteel, 1, 4, 20, crafting_flags = NONE), \
@@ -48,6 +70,14 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 		new/datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_EXPERT), \
 		new/datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_EXPERT), \
 		), 4), \
+	null, \
+	new/datum/stack_recipe("grenade casing", /obj/item/explosive/grenade/chem_grenade), \
+	new/datum/stack_recipe("light fixture frame", /obj/item/frame/light_fixture, 2), \
+	new/datum/stack_recipe("small light fixture frame", /obj/item/frame/light_fixture/small, 1), \
+	null, \
+	new/datum/stack_recipe("apc frame", /obj/item/frame/apc, 2), \
+	new/datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2), \
+	new/datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2), \
 	null, \
 	))
 

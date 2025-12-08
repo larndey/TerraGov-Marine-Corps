@@ -23,7 +23,7 @@
 #define MAP_LAVA_OUTPOST "Lava Outpost V1"
 #define MAP_CORSAT "CORSAT Research Station"
 #define MAP_BLUESUMMERS "Bluesummers Wreck Site"
-
+#define MAP_RIPTIDE "Riptide"
 #define MAP_PILLAR_OF_SPRING "Pillar of Spring"
 #define MAP_SULACO "Sulaco"
 #define MAP_THESEUS "Theseus"
