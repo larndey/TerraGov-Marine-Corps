@@ -380,9 +380,6 @@
 	var/knockdown_threshold = 100
 	///Range of deployed turret
 	var/turret_range = 7
-	///IFF signal for sentries. If it is set here it will be this signal forever. If null the IFF signal will be dependant on the deployer.
-	var/sentry_iff_signal = NONE
-
 	///Icon state used for an added overlay for a sentry. Currently only used in Build-A-Sentry.
 	var/placed_overlay_iconstate = "rifle"
 
@@ -1858,7 +1855,8 @@
 			var/mob/living/carbon/human/shooter_human = gun_user
 			gun_accuracy_mod -= round(min(20, (shooter_human.shock_stage * 0.2))) //Accuracy declines with pain, being reduced by 0.2% per point of pain.
 			if(shooter_human.marksman_aura)
-				gun_accuracy_mod += 10 + max(5, shooter_human.marksman_aura * 5) //Accuracy bonus from active focus order
+				gun_accuracy_mod += 10 + max(5, shooter_human.marksman_aura * 5)
+				gun_scatter -= shooter_human.marksman_aura * 2
 
 ///Generates screenshake if the gun has recoil
 /obj/item/weapon/gun/proc/simulate_recoil(recoil_bonus = 0, firing_angle)

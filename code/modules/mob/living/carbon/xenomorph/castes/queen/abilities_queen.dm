@@ -72,7 +72,7 @@
 	name = "Screech"
 	action_icon_state = "screech"
 	action_icon = 'icons/Xeno/actions/queen.dmi'
-	desc = "A large area knockdown that causes pain and screen-shake."
+	desc = "A large area knockdown that deafens nearby enemies and disorentates them. Stun and stagger amount depends on distance from the target, maximum stun of 1.5 seconds."
 	ability_cost = 250
 	cooldown_duration = 100 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -325,7 +325,7 @@
 	if(overwatch_active)
 		stop_overwatch()
 
-/datum/action/ability/xeno_action/watch_xeno/proc/on_damage_taken(datum/source, damage)
+/datum/action/ability/xeno_action/watch_xeno/proc/on_damage_taken(datum/source, damage, mob/living/attacker)
 	SIGNAL_HANDLER
 	if(overwatch_active)
 		stop_overwatch()

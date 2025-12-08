@@ -24,7 +24,7 @@
 	body_temperature = 350
 
 	inherent_traits = list(TRAIT_IMMEDIATE_DEFIB, TRAIT_CRIT_IS_DEATH)
-	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_NO_HAIR|ROBOTIC_LIMBS|IS_INSULATED
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_NO_HAIR|ROBOTIC_LIMBS|IS_INSULATED|SPECIES_NO_HUG
 
 	no_equip = list(
 		SLOT_W_UNIFORM,
@@ -99,7 +99,7 @@
 	if(!howner.getBruteLoss() && !howner.getFireLoss())
 		return
 	howner.apply_status_effect(STATUS_EFFECT_REPAIR_MODE, 10 SECONDS)
-	howner.balloon_alert_to_viewers("Repairing")
+	howner.balloon_alert_to_viewers("repairing...")
 
 /datum/species/robot/alpharii
 	name = "Hammerhead Combat Robot"
