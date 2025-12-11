@@ -309,6 +309,10 @@
 		var/obj/item/frame/apc/AH = I
 		AH.try_build(src, user)
 
+	else if(istype(I, /obj/item/frame/air_alarm))
+		var/obj/item/frame/air_alarm/AH = I
+		AH.try_build(src, user)
+
 	else if(istype(I, /obj/item/frame/fire_alarm))
 		var/obj/item/frame/fire_alarm/AH = I
 		AH.try_build(src, user)

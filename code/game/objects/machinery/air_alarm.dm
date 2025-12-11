@@ -1,5 +1,28 @@
-// Please note this is cosmetic only and not buildable by players.
-/obj/machinery/air_alarm
+// Please note this is GONNA START WORKING NOW HAHAH
+#define AALARM_SCREEN_MAIN 1
+#define AALARM_SCREEN_VENT 2
+#define AALARM_SCREEN_SCRUB 3
+#define AALARM_SCREEN_MODE 4
+#define AALARM_SCREEN_SENSORS 5
+
+#define AALARM_REPORT_TIMEOUT 100
+
+#define RCON_NO 1
+#define RCON_AUTO 2
+#define RCON_YES 3
+
+#define MAX_TEMPERATURE 90
+#define MIN_TEMPERATURE -40
+
+//all air alarms in area are connected via magic
+/area
+	var/obj/machinery/alarm/master_air_alarm
+	var/list/air_vent_names = list()
+	var/list/air_scrub_names = list()
+	var/list/air_vent_info = list()
+	var/list/air_scrub_info = list()
+
+/obj/machinery/alarm
 	name = "air alarm"
 	icon = 'icons/obj/machines/air_alarm.dmi'
 	icon_state = "alarm_powered"

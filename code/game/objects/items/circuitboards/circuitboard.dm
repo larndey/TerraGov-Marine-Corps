@@ -30,6 +30,12 @@
 	name = "Circuit board (AI Core)"
 
 
+/obj/item/circuitboard/airalarm
+	name = "air alarm electronics"
+	icon_state = "door_electronics"
+	desc = "Looks like a circuit. Probably is. Has to do with air alarms."
+
+
 /obj/item/circuitboard/firealarm
 	name = "fire alarm electronics"
 	icon_state = "door_electronics"

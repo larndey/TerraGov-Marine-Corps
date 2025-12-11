@@ -61,3 +61,21 @@
 
 #define SQUAD_LOCK (1<<0)
 #define JOB_LOCK (1<<1)
+
+
+#define HOLDING (1<<0)
+#define CONNECTED (1<<1)
+#define EMPTY (1<<2)
+#define LOW (1<<3)
+#define MEDIUM (1<<4)
+#define FULL (1<<5)
+#define DANGER (1<<6)
+
+
+#define AALARM_MODE_SCRUBBING 1
+#define AALARM_MODE_REPLACEMENT 2 //like scrubbing, but faster.
+#define AALARM_MODE_PANIC 3 //constantly sucks all air
+#define AALARM_MODE_CYCLE 4 //sucks off all air, then refill and switches to scrubbing
+#define AALARM_MODE_FILL 5 //emergency fill
+#define AALARM_MODE_OFF 6 //Shuts it all down.
+
