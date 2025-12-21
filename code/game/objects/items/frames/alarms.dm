@@ -1,4 +1,3 @@
-
 /*
 AIR ALARM ITEM
 Handheld air alarm frame, for placing on walls
@@ -9,7 +8,6 @@ Code shamelessly copied from apc_frame
 	desc = "Used for building Air Alarms"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "alarm_bitem"
-	flags_atom = CONDUCT
 
 /obj/item/frame/air_alarm/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -53,6 +51,7 @@ Code shamelessly copied from apc_frame
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "alarm_bitem"
 	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 
 /obj/item/frame/air_alarm/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -82,7 +81,7 @@ Code shamelessly copied from apc_frame
 		loc.balloon_alert(user, "already occupied")
 		return
 
-	new /obj/machiner/air_alarm(loc, ndir, 1)
+	new /obj/machinery/air_alarm(loc, ndir, 1)
 	qdel(src)
 
 /*

@@ -92,9 +92,7 @@
 		ENABLE_BITFIELD(machine_stat, PANEL_OPEN)
 
 	wires = new /datum/wires/airalarm(src)
-
 	set_frequency(frequency)
-
 	first_run()
 
 
@@ -348,7 +346,7 @@
 	. += emissive_appearance(icon, "[icon_state]_emissive", src)
 
 var/datum/browser/popup = new(user, "air_alarm", "<div align='center'>[alarm_area.name] Air Alarm</div>")
-	popup.set_content(return_text(user))
+	popup.set_content(return_text(mob/user))
 	popup.open()
 
 
