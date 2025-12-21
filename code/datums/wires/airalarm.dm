@@ -23,7 +23,7 @@
 
 
 /datum/wires/airalarm/get_status()
-	var/obj/machinery/aair_alarm/A = holder
+	var/obj/machinery/air_alarm/A = holder
 	var/list/status = list()
 	status += "The interface light is [A.locked ? "red" : "green"]."
 	status += "The short indicator is [A.shorted ? "lit" : "off"]."
