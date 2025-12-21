@@ -15,7 +15,7 @@
 	layer = GAS_SCRUBBER_LAYER
 	atom_flags = SHUTTLE_IMMUNE
 
-	var/id_tag = null
+	//var/id_tag = null //Not needed, thanks Tiviplus!
 	var/scrubbing = SCRUBBING //0 = siphoning, 1 = scrubbing
 	var/filter_types = list()///datum/gas/carbon_dioxide)
 	var/volume_rate = 200

@@ -324,6 +324,13 @@
 	update_icon()
 
 /obj/machinery/air_alarm/interact(mob/user)
+	.=..()
+	if(.)
+		return
+	var/datum/browser/popup = new(user, "air_alarm", "<div align='center'>[alarm_area.name] Air Alarm</div>")
+	popup.set_content(return_text(user))
+	popup.open()
+
 /obj/machinery/air_alarm/update_icon()
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
@@ -344,11 +351,6 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 	. += emissive_appearance(icon, "[icon_state]_emissive", src)
-
-var/datum/browser/popup = new(user, "air_alarm", "<div align='center'>[alarm_area.name] Air Alarm</div>")
-	popup.set_content(return_text(mob/user))
-	popup.open()
-
 
 /obj/machinery/air_alarm/proc/return_text(mob/user)
 	if(!issilicon(user) && locked)
@@ -827,4 +829,5 @@ table tr:first-child th:first-child { border: none;}
 		return
 
 	qdel(src)
+	new /obj/item/stack/sheet/metal(user.drop_location(), 2)
 	new /obj/item/stack/sheet/metal(user.drop_location(), 2)
