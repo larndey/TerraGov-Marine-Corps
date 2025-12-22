@@ -534,7 +534,7 @@ Nitrous Oxide
 
 		if (AALARM_SCREEN_MODE)
 			output += "<a href='?src=\ref[src];screen=[AALARM_SCREEN_MAIN]'>Main menu</a><br><b>Air machinery mode for the area:</b><ul>"
-			var/list/modes = list(AALARM_MODE_SCRUBBING = "Filtering - Scrubs out contaminants",\
+			var/list/modes = alist(AALARM_MODE_SCRUBBING = "Filtering - Scrubs out contaminants",\
 				AALARM_MODE_REPLACEMENT = span_notice("Replace Air - Siphons out air while replacing"),\
 				AALARM_MODE_PANIC = "<font color='red'>Panic - Siphons air out of the room</font>",\
 				AALARM_MODE_CYCLE = "<font color='red'>Cycle - Siphons air before replacing</font>",\
