@@ -1,11 +1,3 @@
-#define HOLDING (1<<0)
-#define CONNECTED (1<<1)
-#define EMPTY (1<<2)
-#define LOW (1<<3)
-#define MEDIUM (1<<4)
-#define FULL (1<<5)
-#define DANGER (1<<6)
-
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "A canister for the storage of gas."
