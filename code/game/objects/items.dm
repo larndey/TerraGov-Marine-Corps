@@ -18,9 +18,9 @@
 	///The icon state used to represent this image in "icons/obj/items/items_mini.dmi" Used in /obj/item/storage/box/visual to display tiny items in the box
 	var/icon_state_mini = "item"
 	///Byond tick delay between left click attacks
-	var/attack_speed = 11
+	var/attack_speed = CLICK_CD_MELEE_WEAPON_DEFAULT
 	///Byond tick delay between right click alternate attacks
-	var/attack_speed_alternate = 11
+	var/attack_speed_alternate = null
 	///Used in attackby() to say how something was attacked "[x] [z.attack_verb] [y] with their [z]!" Should be in simple present tense!
 	var/list/attack_verb
 
@@ -192,6 +192,9 @@
 	if(autobalance_monitor_value)
 		AddComponent(/datum/component/autobalance_monitor, autobalance_monitor_value)
 
+	if(!isnum(attack_speed_alternate))
+		attack_speed_alternate = attack_speed
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -296,8 +299,6 @@
 	. = ..()
 	if(.)
 		return
-	if(!user)
-		return
 	if(!istype(user))
 		return
 	if(anchored)
@@ -311,8 +312,11 @@
 		if(!current_storage.remove_from_storage(src, user.loc, user))
 			return
 
-	if(loc == user && !user.temporarilyRemoveItemFromInventory(src))
-		return
+	if(ismob(loc)) //you shouldn't be able to click on items directly if they are on a mob, other than your own inventory.
+		if(loc != user) //stops a tremendous number of exploits and ghost dupes due to byond being shitty.
+			return
+		if(!user.temporarilyRemoveItemFromInventory(src))
+			return
 
 	if(QDELETED(src))
 		return
@@ -1234,6 +1238,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else
 		active = !active
 	SEND_SIGNAL(src, COMSIG_ITEM_TOGGLE_ACTIVE, active)
+	return TRUE
 
 ///Generates worn icon for sprites on-mob.
 /obj/item/proc/make_worn_icon(species_type, slot_name, inhands, default_icon, default_layer)

@@ -183,6 +183,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/cigarette/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)
 	. = ..()
+	if(!lit)
+		return
 	var/mutable_appearance/emissive_overlay = emissive_appearance(icon_used, emissive_state, src)
 	standing.overlays.Add(emissive_overlay)
 
@@ -270,6 +272,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				to_chat(user, span_notice("[glass] is empty."))
 			else
 				to_chat(user, span_notice("[src] is full."))
+
+/obj/item/clothing/mask/cigarette/surgery_tool_check()
+	return lit
 
 /obj/item/clothing/mask/cigarette/proc/light(flavor_text = null)
 	if(lit)
@@ -600,6 +605,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			turn_off(user, FALSE)
 	else
 		return ..()
+
+/obj/item/tool/lighter/surgery_tool_check()
+	return heat
 
 /obj/item/tool/lighter/proc/turn_off(mob/living/bearer, silent = TRUE)
 	if(heat)

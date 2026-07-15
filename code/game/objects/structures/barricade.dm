@@ -1,7 +1,6 @@
 // Snow, wood, sandbags, metal, plasteel
 
 /obj/structure/barricade
-	climbable = TRUE
 	anchored = TRUE
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
@@ -9,7 +8,6 @@
 	obj_flags = CAN_BE_HIT | IGNORE_DENSITY | BLOCKS_CONSTRUCTION_DIR
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_DEFENSIVE_STRUCTURE|PASSABLE|PASS_WALKOVER
-	climb_delay = 2 SECONDS
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
 	max_integrity = 100
 	barrier_flags = HANDLE_BARRIER_CHANCE
@@ -40,6 +38,8 @@
 	AddElement(/datum/element/connect_loc, connections)
 	if(user)
 		faction = user.faction
+
+	AddComponent(/datum/component/climbable, 2 SECONDS)
 
 /obj/structure/barricade/handle_barrier_chance(mob/living/M)
 	return prob(max(30,(100.0*obj_integrity)/max_integrity))
@@ -118,7 +118,7 @@
 /obj/structure/barricade/proc/wire()
 	can_wire = FALSE
 	is_wired = TRUE
-	climbable = FALSE
+	remove_component(/datum/component/climbable)
 	modify_max_integrity(max_integrity + 50)
 	update_icon()
 
@@ -136,7 +136,7 @@
 	modify_max_integrity(max_integrity - 50)
 	can_wire = TRUE
 	is_wired = FALSE
-	climbable = TRUE
+	AddComponent(/datum/component/climbable)
 	update_icon()
 	new /obj/item/stack/barbed_wire(loc)
 
@@ -311,6 +311,23 @@
 	hit_sound = "sound/effects/metalhit.ogg"
 	barricade_type = "railing"
 	can_wire = FALSE
+
+/*----------------------*/
+// RAILING
+/*----------------------*/
+
+/obj/structure/barricade/railing
+	name = "railing"
+	desc = "Basic railing meant to protect idiots like you from falling."
+	icon = 'icons/obj/structures/prop/mainship.dmi'
+	icon_state = "railing"
+	barricade_type = "railing"
+	can_change_dmg_state = FALSE
+	can_wire = FALSE
+	stack_type = null
+	stack_amount = 0
+	destroyed_stack_amount = 0
+	resistance_flags = RESIST_ALL
 
 /*----------------------*/
 // WOOD
@@ -705,6 +722,11 @@
 
 	update_icon()
 
+/obj/structure/barricade/solid/capsule
+	name = "capsule-deployed metal barricade"
+	desc = parent_type::desc + " Deconstruction will yield less materials due to being deployed via capsule."
+	stack_amount = 3
+
 #undef BARRICADE_METAL_LOOSE
 #undef BARRICADE_METAL_ANCHORED
 #undef BARRICADE_METAL_FIRM
@@ -744,7 +766,6 @@
 	hit_sound = "sound/effects/metalhit.ogg"
 	barricade_type = "folding_plasteel"
 	can_wire = TRUE
-	climbable = TRUE
 	COOLDOWN_DECLARE(tool_cooldown) //Delay to apply tools to prevent spamming
 	///What state is our barricade in for construction steps?
 	var/build_state = BARRICADE_PLASTEEL_FIRM
@@ -995,6 +1016,11 @@
 
 	update_icon()
 
+/obj/structure/barricade/folding/capsule
+	name = "capsule-deployed folding plasteel barricade"
+	desc = parent_type::desc + " Deconstruction will yield less materials due to being deployed via capsule."
+	stack_amount = 4
+
 #undef BARRICADE_PLASTEEL_LOOSE
 #undef BARRICADE_PLASTEEL_ANCHORED
 #undef BARRICADE_PLASTEEL_FIRM
@@ -1107,7 +1133,7 @@
 	if(internal_shield.is_wired)
 		can_wire = FALSE
 		is_wired = TRUE
-		climbable = FALSE
+		remove_component(/datum/component/climbable)
 
 /obj/structure/barricade/solid/deployable/get_internal_item()
 	return internal_shield
