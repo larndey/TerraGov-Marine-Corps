@@ -1,16 +1,44 @@
 // channel numbers for power
-#define EQUIP 1
-#define LIGHT 2
-#define ENVIRON 3
-#define TOTAL 4	//for total power used only
-#define STATIC_EQUIP 5
-#define STATIC_LIGHTS 6
-#define STATIC_ENVIRON 7
+// These are indexes in a list, and indexes for "dynamic" and static channels should be kept contiguous
+#define AREA_USAGE_EQUIP 1
+#define AREA_USAGE_LIGHT 2
+#define AREA_USAGE_ENVIRON 3
+#define AREA_USAGE_STATIC_EQUIP 4
+#define AREA_USAGE_STATIC_LIGHT 5
+#define AREA_USAGE_STATIC_ENVIRON 6
+#define AREA_USAGE_APC_CHARGE 7
+#define AREA_USAGE_LEN AREA_USAGE_APC_CHARGE // largest idx
+
+/// Index of the first dynamic usage channel
+#define AREA_USAGE_DYNAMIC_START AREA_USAGE_EQUIP
+/// Index of the last dynamic usage channel
+#define AREA_USAGE_DYNAMIC_END AREA_USAGE_ENVIRON
+
+/// Index of the first static usage channel
+#define AREA_USAGE_STATIC_START AREA_USAGE_STATIC_EQUIP
+/// Index of the last static usage channel
+#define AREA_USAGE_STATIC_END AREA_USAGE_STATIC_ENVIRON
+
+#define DYNAMIC_TO_STATIC_CHANNEL(dyn_channel) (dyn_channel + (AREA_USAGE_STATIC_START - AREA_USAGE_DYNAMIC_START))
+#define STATIC_TO_DYNAMIC_CHANNEL(static_channel) (static_channel - (AREA_USAGE_STATIC_START - AREA_USAGE_DYNAMIC_START))
+
 
 //Power use
+/// dont use power
 #define NO_POWER_USE 0
+/// use idle_power_usage i.e. the power needed just to keep the machine on
 #define IDLE_POWER_USE 1
+/// use active_power_usage i.e. the power the machine consumes to perform a specific task
 #define ACTIVE_POWER_USE 2
+
+///Base global power consumption for idling machines
+#define BASE_MACHINE_IDLE_CONSUMPTION (100 WATTS)
+///Base global power consumption for active machines. The unit is ambiguous (joules or watts) depending on the use case for dynamic users.
+#define BASE_MACHINE_ACTIVE_CONSUMPTION (BASE_MACHINE_IDLE_CONSUMPTION * 10)
+
+/// Bitflags for a machine's preferences on when it should start processing. For use with machinery's `processing_flags` var.
+#define START_PROCESSING_ON_INIT (1<<0) /// Indicates the machine will automatically start processing right after its `Initialize()` is ran.
+#define START_PROCESSING_MANUALLY (1<<1) /// Machines with this flag will not start processing when it's spawned. Use this if you want to manually control when a machine starts processing.
 
 
 //bitflags for door switches.

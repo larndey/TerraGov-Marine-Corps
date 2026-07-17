@@ -1,6 +1,6 @@
 #define AIRALARM_WARNING_COOLDOWN (10 SECONDS)
 
-/obj/machinery/airalarm
+/obj/machinery/air_alarm
 	name = "air alarm"
 	desc = "A machine that monitors atmosphere levels. Goes off if the area is dangerous."
 	icon = 'icons/obj/machines/wallmounts.dmi'
